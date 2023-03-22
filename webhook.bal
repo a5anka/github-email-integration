@@ -13,6 +13,7 @@ listener github:Listener webhookListener =  new(config,httpListener);
 
 service github:IssuesService on webhookListener {
   
+    // This function is invoked when a new issue is created
     remote function onOpened(github:IssuesEvent payload ) returns error? {
       string issueTitle = payload.issue.title;
       string issueBody = payload.issue.body ?: "";
